@@ -1,20 +1,23 @@
 {{> navegacion}}
 <div class="container mt-3">
   <header class="my-5">
-    <h1>Bienvenido al Calendario de Eventos</h1>
+    <h1>Bienvenido</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sunt consequatur repellat cumque illo nam aliquam, amet excepturi totam aperiam nobis minus earum, dolores qui quos libero? Architecto, repudiandae blanditiis!
     </p>
     <a href="/about">Conóceme</a>
   </header>
   <hr>
-  <h3 class="mt-5 mb-3">Últimos artículos</h3>
+  <h3 class="mt-5 mb-3">Eventos</h3>
   {{#each eventos}}
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title">{{this.titulo}}</h5>
-        <p class="card-text">{{this.contenido}}</p>
-        <a href="/eventos/{{this.id}}" class="btn btn-primary btn-sm">Leer más</a>
+        <p class="card-text">Fecha del Evento: {{this.fecha}}</p>
+        <p class="card-text">Hora del Evento: {{this.hora}}</p>
+        <p class="card-text">Enlace: {{this.enlace}}</p>
+        <p class="card-text">Detalles: {{this.contenido}}</p>
+        <a href="/eventos/{{this.id}}" class="btn btn-primary btn-sm">Acciones</a>
       </div>
     </div>
   {{/each}}

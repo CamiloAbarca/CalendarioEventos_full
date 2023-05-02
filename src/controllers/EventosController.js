@@ -27,6 +27,9 @@ class EventosController {
     res.render('evento', {
       id,
       titulo: evento.titulo,
+      fecha: evento.fecha,
+      hora: evento.hora,
+      enlace: evento.enlace,
       contenido: evento.contenido
     })
   }
@@ -43,15 +46,21 @@ class EventosController {
     res.render('evento-form', {
       id,
       titulo: evento.titulo,
+      fecha: evento.fecha,
+      hora: evento.hora,
+      enlace: evento.enlace,
       contenido: evento.contenido
     })
   }
 
   async insertAndRenderEvento (req, res) {
     const titulo = req.body.titulo
+    const fecha = req.body.fecha
+    const hora = req.body.hora
+    const enlace = req.body.enlace
     const contenido = req.body.contenido
 
-    const evento = { titulo, contenido }
+    const evento = { titulo, fecha, hora, enlace, contenido }
 
     const id = await this.eventosDao.create(evento)
 
@@ -61,9 +70,12 @@ class EventosController {
   async updateAndRenderEvento (req, res) {
     const id = req.params.id
     const titulo = req.body.titulo
+    const fecha = req.body.fecha
+    const hora = req.body.hora
+    const enlace = req.body.enlace
     const contenido = req.body.contenido
 
-    const evento = { titulo, contenido, id }
+    const evento = { titulo, fecha, hora, enlace, contenido, id }
 
     await this.eventosDao.update(evento)
 
