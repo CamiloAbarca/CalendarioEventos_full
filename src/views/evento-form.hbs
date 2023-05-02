@@ -1,0 +1,27 @@
+{{> navegacion}}
+<div class="container mt-3">
+  <h1>
+    {{#if id}}
+      Actualizando el evento "{{titulo}}" ({{id}})
+    {{else}}
+      Crear un nuevo evento
+    {{/if}}
+  </h1>
+  
+  <form action="/eventos/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" class="form-control" name="titulo" aria-describedby="tituloHelp" required="true" value="{{titulo}}">
+      <div id="tituloHelp" class="form-text">Utiliza un título ingenioso</div>
+    </div>
+    <div class="mb-3">
+      <label for="contenido" class="form-label">Contenido</label>
+      <textarea class="form-control" name="contenido" rows="3" aria-describedby="contenidoHelp">{{contenido}}</textarea>
+      <div id="contenidoHelp" class="form-text">¿Que quieres contar al mundo?</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>
+{{> footer}}
